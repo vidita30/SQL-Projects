@@ -7,20 +7,20 @@ This project entails an in-depth analysis of Netflix's movies and TV shows data 
 
 # Objectives
 1.Analyze the distribution of content types (movies vs TV shows): </br>
- &nbsp •Examine the balance between the number of movies and TV shows available on Netflix.</br>
+  - Examine the balance between the number of movies and TV shows available on Netflix.</br>
 2.Identify the most common ratings for movies and TV shows:</br>
   •Analyze the distribution of content ratings and identify the most frequent ratings for both movies and TV shows.</br>
 3.List and analyze content based on release years, countries, and durations:</br>
-  •Explore content trends by analyzing release years, identifying which countries produce the most content, and categorizing    content based on its duration.
-4.Content Addition Patterns:
-  •Explore patterns in content availability based on date_added to Netflix.
-  •Identify seasonal or regional trends in content addition.
-5.Rating Distribution:
-  •Analyze the most common ratings assigned to both movies and TV shows.
-  •Examine the correlation between ratings and other factors like genre, region, or director.
-6.Text-Based Insights:
-  •Perform text analysis on the description column to identify common keywords or themes.
-  •Categorize content based on the sentiment or tone of its description.
+  •Explore content trends by analyzing release years, identifying which countries produce the most content, and categorizing    content based on its duration.</br>
+4.Content Addition Patterns:</br>
+  •Explore patterns in content availability based on date_added to Netflix.</br>
+  •Identify seasonal or regional trends in content addition.</br>
+5.Rating Distribution:</br>
+  •Analyze the most common ratings assigned to both movies and TV shows.</br>
+  •Examine the correlation between ratings and other factors like genre, region, or director.</br>
+6.Text-Based Insights:</br>
+  •Perform text analysis on the description column to identify common keywords or themes.</br>
+  •Categorize content based on the sentiment or tone of its description.</br>
 
 # Dataset
 The dataset used has been added in the folder itself.
