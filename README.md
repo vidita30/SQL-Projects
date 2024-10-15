@@ -31,4 +31,21 @@ This project entails an in-depth analysis of Netflix's movies and TV shows data 
 The dataset used has been added in the folder itself.
 
 # Schema
-![image](https://github.com/user-attachments/assets/599ab87a-a5f0-4516-998b-f34f1fd92067)
+*Created the table in SQL using command prompt and imported the contents of table*
+```sql
+create table netflix
+    -> (
+    -> show_id varchar(6),
+    -> type varchar(10),
+    -> title varchar(150),
+    -> director varchar(208),
+    -> casts varchar(1000),
+    -> country varchar(150),
+    -> date_added varchar(50),
+    -> release_year int,
+    -> rating varchar(10),
+    -> duration varchar(15),
+    -> listed_in varchar(55),
+    -> description varchar(250)
+    -> );
+```
