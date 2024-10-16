@@ -49,7 +49,8 @@ create table netflix
     -> description varchar(250)
     -> );
 ```
-*imported the contents of table using the following query*
+*Imported the contents of the csv file using the following query*
+```sql
  LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/Netflix_data.csv'
     -> into table netflix
     -> fields terminated by ','
@@ -57,3 +58,5 @@ create table netflix
     -> lines terminated by '\n'
     -> ignore 1 rows
     -> (show_id,type,title,director,casts,country,date_added,release_year,rating,duration,listed_in,description);
+```
+
