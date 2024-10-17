@@ -98,15 +98,23 @@ select country,count(*) as total_content
 ```
 6.Determine the longest movie available on Netflix.
 ```sql
-
+select title,duration
+    -> from netflix
+    -> where type='Movie'
+    -> order by cast(substring_index(duration,'',1)as unsigned) desc
+    -> limit 1;
 ```
 7.Find the content added to Netflix in the last 5 years.
 ```sql
-
+SELECT *
+    -> FROM netflix
+    -> WHERE STR_TO_DATE(date_added, '%M %d, %Y') >= DATE_SUB(CURDATE(), INTERVAL 5 YEAR);
 ```
 8.Display all the Movies or TV Shows directed by 'Rajiv Chilaka.'
 ```sql
-
+SELECT title, type, release_year, country, rating, duration
+    -> FROM netflix
+    -> WHERE director = 'Rajiv Chilaka';
 ```
 9.List TV shows that have more than 5 seasons.
 ```sql
