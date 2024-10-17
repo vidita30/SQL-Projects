@@ -110,37 +110,64 @@ SELECT *
     -> FROM netflix
     -> WHERE STR_TO_DATE(date_added, '%M %d, %Y') >= DATE_SUB(CURDATE(), INTERVAL 5 YEAR);
 ```
-8.Display all the Movies or TV Shows directed by 'Rajiv Chilaka.'
+8.Display all the Movies or TV Shows directed by 'Toshiya Shinohara'
 ```sql
 SELECT title, type, release_year, country, rating, duration
     -> FROM netflix
-    -> WHERE director = 'Rajiv Chilaka';
+    -> WHERE director = 'Toshiya Shinohara';
 ```
 9.List TV shows that have more than 5 seasons.
 ```sql
-
+ SELECT title, duration
+    -> FROM netflix
+    -> WHERE type = 'TV Show'
+    -> AND CAST(SUBSTRING_INDEX(duration, ' ', 1) AS UNSIGNED) > 5;
 ```
 10.Count the number of content items in each genre.
 ```sql
-
+select listed_in as genre,count(*) as total_content
+    -> from netflix
+    -> group by listed_in
+    -> order by total_content desc;
 ```
-11.For each year, calculate the average number of content releases in India and display the top 5 years with the highest averages.
+11.For each year, calculate the average number of content released in India and display the top 5 years with the highest averages.
 ```sql
-
+select release_year,
+    -> count(*) / count(distinct release_year) as avg_content
+    -> from netflix
+    -> where country like '%India%'
+    -> group by release_year
+    -> limit 5;
 ```
 12.Retrieve all movies that fall under the category of documentaries.
 ```sql
-
+SELECT title, director, release_year, country, rating, duration
+    -> FROM netflix
+    -> WHERE type = 'Movie'
+    -> AND listed_in LIKE '%Documentaries%';
 ```
 13.Find content that doesn't have a listed director.
 ```sql
-
+SELECT title, type, release_year, country, rating, duration
+    -> FROM netflix
+    -> WHERE director IS NULL OR director = '';
 ```
 14.Identify how many movies actor 'Salman Khan' appeared in over the last 10 years.
 ```sql
-
+SELECT COUNT(*) AS total_movies
+    -> FROM netflix
+    -> WHERE type = 'Movie'
+    -> AND casts LIKE '%Salman Khan%'
+    -> AND release_year >= 2014;
 ```
-15.List the top 10 actors who have appeared in the most movies produced in India.
+15.Categorize Content Based on the Presence of 'Kill' and 'Violence' Keywords
 ```sql
-
+SELECT
+    ->     CASE
+    ->         WHEN LOWER(description) LIKE '%kill%' OR LOWER(description) LIKE '%violence%' THEN 'Violent'
+    ->         ELSE 'Non-Violent'
+    ->     END AS category,
+    ->     COUNT(*) AS content_count
+    -> FROM netflix
+    -> GROUP BY category;
 ```
