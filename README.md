@@ -59,4 +59,80 @@ create table netflix
     -> ignore 1 rows
     -> (show_id,type,title,director,casts,country,date_added,release_year,rating,duration,listed_in,description);
 ```
+# Queries 
+1.Compare the total number of Movies versus TV Shows on Netflix.
+```sql
+select type,
+    -> count(*)
+    -> from netflix
+    -> group by type;
+```
 
+2.Identify the most frequent rating for both Movies and TV Shows.
+```sql
+select type,MAX(rating)
+    -> from netflix
+    -> group by 1;
+```
+3.Retrieve a list of all movies released in a particular year (e.g., 2020).
+```sql
+select * from netflix
+    -> where type='Movie' and release_year=2020;
+```
+4.Count Content Added Each Year
+```sql
+SELECT
+    ->     EXTRACT(YEAR FROM STR_TO_DATE(date_added, '%M %d, %Y')) AS year,
+    ->     COUNT(*) AS total_added
+    -> FROM netflix
+    -> GROUP BY year
+    -> ORDER BY year;
+```
+5.Rank the top 5 countries that have the highest amount of content on Netflix.
+```sql
+select country,count(*) as total_content
+    -> from netflix
+    -> group by country
+    -> order by total_content desc
+    -> limit 5;
+```
+6.Determine the longest movie available on Netflix.
+```sql
+
+```
+7.Find the content added to Netflix in the last 5 years.
+```sql
+
+```
+8.Display all the Movies or TV Shows directed by 'Rajiv Chilaka.'
+```sql
+
+```
+9.List TV shows that have more than 5 seasons.
+```sql
+
+```
+10.Count the number of content items in each genre.
+```sql
+
+```
+11.For each year, calculate the average number of content releases in India and display the top 5 years with the highest averages.
+```sql
+
+```
+12.Retrieve all movies that fall under the category of documentaries.
+```sql
+
+```
+13.Find content that doesn't have a listed director.
+```sql
+
+```
+14.Identify how many movies actor 'Salman Khan' appeared in over the last 10 years.
+```sql
+
+```
+15.List the top 10 actors who have appeared in the most movies produced in India.
+```sql
+
+```
